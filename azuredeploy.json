@@ -87,7 +87,7 @@
     },
     {
       "apiVersion": "2015-01-01",
-      "name": "VnetGateway",
+      "name": "ApplicationGateway",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
