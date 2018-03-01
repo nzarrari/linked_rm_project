@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualNetworkName": {
-      "value": "GEN-UNIQUE-8"
+      "value": "CDS.PROD-DR.VNET"
     },
     "addressPrefix": {
       "value": "10.3.0.0/16"

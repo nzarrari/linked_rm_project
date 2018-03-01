@@ -24,7 +24,7 @@
         "description": "Name for the new gateway"
       }
     },
-    "gatewayPublicIPName": {
+    "PublicIPName": {
       "type": "string",
       "metadata": {
         "description": "Name for public IP object used for the new gateway"
@@ -50,7 +50,7 @@
                 "id": "[variables('gatewaySubnetRef')]"
               },
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('gatewayPublicIPName'))]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('PublicIPName'))]"
               }
             },
             "name": "vnetGatewayConfig"

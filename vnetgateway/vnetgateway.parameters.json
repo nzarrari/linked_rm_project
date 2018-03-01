@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualNetworkName": {
-      "value": "GEN-UNIQUE-8"
+      "value": "CDS.PROD-DR.VNET"
     },
     "gatewayName": {
-      "value": "GEN-UNIQUE-8"
+      "value": "ProductionDRPointToSite"
     },
-    "gatewayPublicIPName": {
-      "value": "GEN-UNIQUE-8"
+    "PublicIPName": {
+      "value": "2ndAppGatewayPIP01"
     }
 
   }

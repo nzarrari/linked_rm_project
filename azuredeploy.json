@@ -4,7 +4,7 @@
   "resources": [
     {
       "apiVersion": "2015-01-01",
-      "name": "PublicIPDeployment",
+      "name": "PublicIPDeployment1",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
@@ -16,6 +16,21 @@
           "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.parameters.json",
           "contentVersion": "1.0.0.0"
         }
+      }
+    },
+    {
+      "apiVersion": "2015-01-01",
+      "name": "PublicIPDeployment2",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "publicIPName": { "value": "AppGatewayPIP01" }
+        }      
       }
     },
     {
