@@ -2,6 +2,24 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "localGatewayName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name for gateway connected to other VNet/on-prem network"
+      }
+    },
+    "localGatewayIpAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "Public IP address for the gateway to connect to (from other VNet/on-prem)"
+      }
+    },
+    "localGatewayAddressPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "CIDR block for remote network"
+      }
+    }
   },
   "resources": [
     {
