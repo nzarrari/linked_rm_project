@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "applicationGatewayName": {
-      "value": "applicationGateway1"
+      "value": "Cloud-Gateway-DR"
     },
     "publicIPAddressName": {
       "value": "publicip2"

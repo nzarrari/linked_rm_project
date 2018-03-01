@@ -30,7 +30,7 @@
         },
         "parameters": {
           "publicIPName": { "value": "AppGatewayPIP01" }
-        }      
+        }
       }
     },
     {
@@ -82,7 +82,27 @@
       },
       "dependsOn": [
         "VnetDeployment",
-        "PublicIPDeployment"
+        "PublicIPDeployment1"
+      ]
+    },
+    {
+      "apiVersion": "2015-01-01",
+      "name": "VnetGateway",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/applicationgateway/applicationgateway.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parametersLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/applicationgateway/applicationgateway.parameters.json",
+          "contentVersion": "1.0.0.0"
+        }
+      },
+      "dependsOn": [
+        "VnetDeployment",
+        "PublicIPDeployment2"
       ]
     }
   ]
