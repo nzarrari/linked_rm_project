@@ -25,14 +25,31 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.json",
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.json",
           "contentVersion": "1.0.0.0"
         },
         "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.parameters.json",
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.parameters.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+    {
+      "apiVersion": "2015-01-01",
+      "name": "VnetDeployment",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parametersLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.parameters.json",
           "contentVersion": "1.0.0.0"
         }
       }
     }
+
   ]
 }
