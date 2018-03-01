@@ -1,125 +1,19 @@
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "enableBgp": {
-      "type": "string",
-      "gatewayPublicIPName": null,
-      "metadata": {
-        "description": "Enable or disable BGP"
-      },
-      "defaultValue": "false",
-      "allowedValues": [
-        "false"
-      ]
-    },
-    "gatewayType": {
-      "type": "string",
-      "metadata": {
-        "description": "VPN or ER"
-      },
-      "defaultValue": "Vpn",
-      "allowedValues": [
-        "Vpn",
-        "ER"
-      ]
-    },
-    "vpnType": {
-      "type": "string",
-      "metadata": {
-        "description": "Route based or policy based"
-      },
-      "defaultValue": "RouteBased",
-      "allowedValues": [
-        "RouteBased",
-        "PolicyBased"
-      ]
-    },
-    "localGatewayName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for gateway connected to other VNet/on-prem network"
-      }
-    },
-    "localGatewayIpAddress": {
-      "type": "string",
-      "metadata": {
-        "description": "Public IP address for the gateway to connect to (from other VNet/on-prem)"
-      }
-    },
-    "localGatewayAddressPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "CIDR block for remote network"
-      }
-    },
-    "virtualNetworkName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for new virtual network"
-      }
-    },
-    "addressPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for new virtual network"
-      }
-    },
-    "subnet1Name": {
-      "type": "string",
-      "defaultValue": "Subnet1",
-      "metadata": {
-        "description": "Name for VM subnet in the new VNet"
-      }
-    },
-    "gatewaySubnet": {
-      "type": "string",
-      "defaultValue": "GatewaySubnet",
-      "metadata": {
-        "description": "Name for gateway subnet in new VNet"
-      },
-      "allowedValues": [
-        "GatewaySubnet"
-      ]
-    },
-    "subnet1Prefix": {
-      "type": "string",
-      "metadata": {
-        "description": "CIDR block for VM subnet"
-      }
-    },
-    "gatewaySubnetPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "CIDR block for gateway subnet"
-      }
-    },
-    "gatewayPublicIPName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for public IP object used for the new gateway"
-      }
-    },
-    "gatewayName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for the new gateway"
-      }
-    }
-  },
-  "variables": {
-    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-    "gatewaySubnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('gatewaySubnet'))]"
-  },
   "resources": [
     {
-      "apiVersion": "2017-05-10",
-      "name": "[parameters('gatewayPublicIPName')]",
+      "apiVersion": "2015-01-01",
+      "name": "PublicIPDeployment",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "pipurl",
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parametersLink": {
+          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.parameters.json",
           "contentVersion": "1.0.0.0"
         }
       }
