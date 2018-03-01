@@ -6,7 +6,7 @@
       "value": "Cloud-Gateway-DR"
     },
     "publicIPAddressName": {
-      "value": "publicip2"
+      "value": "2ndAppGatewayPIP01"
     },
     "virtualNetworkName": {
       "value": "CDS.PROD-DR.VNET"
