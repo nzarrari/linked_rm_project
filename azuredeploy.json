@@ -41,11 +41,11 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.json",
+          "uri": "https://github.com/nzarrari/linked_rm_project/blob/master/vnet/vnet.json",
           "contentVersion": "1.0.0.0"
         },
         "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.parameters.json",
+          "uri": "https://github.com/nzarrari/linked_rm_project/blob/master/vnet/vnet.parameters.json",
           "contentVersion": "1.0.0.0"
         }
       }
