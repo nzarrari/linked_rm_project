@@ -9,7 +9,7 @@
       "value": "ProductionDRPointToSite"
     },
     "PublicIPName": {
-      "value": "2ndAppGatewayPIP01"
+      "value": "AppGatewayPIP01"
     }
 
   }
