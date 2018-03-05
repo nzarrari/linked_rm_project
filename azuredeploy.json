@@ -99,7 +99,7 @@
             "contentVersion": "1.0.0.0"
           },
           "parametersLink": {
-            "uri": "[concat(variables('templateBaseUrl'), 'applicationgateway.parameters.json')]",
+            "uri": "[concat(variables('templateBaseUrl'), 'applicationgateway/applicationgateway.parameters.json')]",
             "contentVersion": "1.0.0.0"
           }
         },
