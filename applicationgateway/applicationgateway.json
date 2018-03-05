@@ -68,6 +68,12 @@
       "metadata": {
         "description": "Base-64 encoded form of the .pfx file"
       }
+    },
+    "certPwd": {
+      "type": "string",
+      "metadata": {
+        "description": "Cert password"
+      }
     }
   },
   "variables": {
