@@ -68,6 +68,12 @@
       "metadata": {
         "description": "Base-64 encoded form of the .pfx file"
       }
+    },
+    "certPwd": {
+      "type": "string",
+      "metadata": {
+        "description": "cert password"
+      }
     }
   },
   "variables": {
@@ -88,17 +94,16 @@
           "tier": "Standard",
           "capacity": "[parameters('capacity')]"
         },
-        "sslCertificates": [],
-        "authenticationCertificates": [
+        "sslCertificates": [
           {
-            "name": "mynzcert",
+            "name": "appGatewayFrontEndSslCert",
             "properties": {
-              "provisioningState": "Succeeded",
-              "data": "[parameters('certData')]"
+              "data": "parameters('certData')",
+              "password": "[parameters('certPwd')]"
+
             }
           }
         ],
-
         "gatewayIPConfigurations": [
           {
             "name": "appGatewayIpConfig",
