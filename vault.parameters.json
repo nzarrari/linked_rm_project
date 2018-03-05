@@ -1,0 +1,15 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "authenticationCertificates": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/e7cecf85-ecbf-46b1-8f07-2a7617440456/resourceGroups/NavResourceGroup/providers/Microsoft.KeyVault/vaults/mynzkeyvault"
+        },
+        "secretName": "mynzcert"
+      }
+    }
+  }
+}
+
