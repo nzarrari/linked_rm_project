@@ -1,109 +1,112 @@
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "name": "PublicIPDeployment1",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.parameters.json",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "name": "PublicIPDeployment2",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/pip/pip.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "publicIPName": { "value": "AppGatewayPIP01" }
-        }
-      }
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "name": "LocalNetworkGatewayDeployment",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/localnetworkgateway/localnetworkgateway.parameters.json",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "name": "VnetDeployment",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/vnet/vnet.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/vnet/vnet.parameters.json",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "name": "VnetGateway",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/vnetgateway/vnetgateway.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/vnetgateway/vnetgateway.parameters.json",
-          "contentVersion": "1.0.0.0"
+  "variables": {
+    "templateBaseUrl": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/"
+  },
+    "resources": [
+      {
+        "apiVersion": "2015-01-01",
+        "name": "PublicIPDeployment1",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'pip/pip.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'pip/pip.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          }
         }
       },
-      "dependsOn": [
-        "VnetDeployment",
-        "PublicIPDeployment2"
-      ]
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "name": "ApplicationGateway",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/applicationgateway/applicationgateway.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parametersLink": {
-          "uri": "https://raw.githubusercontent.com/nzarrari/linked_rm_project/master/applicationgateway/applicationgateway.parameters.json",
-          "contentVersion": "1.0.0.0"
+      {
+        "apiVersion": "2015-01-01",
+        "name": "PublicIPDeployment2",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'pip/pip.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "publicIPName": { "value": "AppGatewayPIP01" }
+          }
         }
       },
-      "dependsOn": [
-        "VnetDeployment",
-        "PublicIPDeployment1"
-      ]
-    }
-  ]
-}
+      {
+        "apiVersion": "2015-01-01",
+        "name": "LocalNetworkGatewayDeployment",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'localnetworkgateway/localnetworkgateway.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'localnetworkgateway/localnetworkgateway.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          }
+        }
+      },
+      {
+        "apiVersion": "2015-01-01",
+        "name": "VnetDeployment",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'vnet/vnet.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'vnet/vnet.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          }
+        }
+      },
+      {
+        "apiVersion": "2015-01-01",
+        "name": "VnetGateway",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'vnetgateway/vnetgateway.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'vnetgateway/vnetgateway.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          }
+        },
+        "dependsOn": [
+          "VnetDeployment",
+          "PublicIPDeployment2"
+        ]
+      },
+      {
+        "apiVersion": "2015-01-01",
+        "name": "ApplicationGateway",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'applicationgateway/applicationgateway.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "[concat(variables('templateBaseUrl'), 'applicationgateway.parameters.json')]",
+            "contentVersion": "1.0.0.0"
+          }
+        },
+        "dependsOn": [
+          "VnetDeployment",
+          "PublicIPDeployment1"
+        ]
+      }
+    ]
+  }

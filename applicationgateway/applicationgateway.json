@@ -68,12 +68,6 @@
       "metadata": {
         "description": "Base-64 encoded form of the .pfx file"
       }
-    },
-    "certPwd": {
-      "type": "string",
-      "metadata": {
-        "description": "cert password"
-      }
     }
   },
   "variables": {
@@ -98,9 +92,7 @@
           {
             "name": "appGatewayFrontEndSslCert",
             "properties": {
-              "data": "parameters('certData')",
-              "password": "[parameters('certPwd')]"
-
+              "data": "parameters('certData')"
             }
           }
         ],
